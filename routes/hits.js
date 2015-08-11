@@ -1,18 +1,24 @@
+// var express = require('express');
+// var router = express.Router();
 
-// hits service
+// /* GET home page. */
+// router.get('/hits', function(req, res, next) {
+//   res.send('hits');
+// });
 
-  var hits = 0;
-  exports.count = function(req, res) {
+// module.exports = router;
+var hits = 0;
+myHits = {
+  count: function(req, res) {
     res.send(200, {
       hits: hits
     })
-  }
-  exports.registerNew = function(req, res) {
+  },
+  registerNew: function(req, res) {
     hits += 1;
     res.send(200, {
       hits: hits
     })
   }
-  return hits;
-
-  
+};
+module.exports = myHits;

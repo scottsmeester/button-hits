@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var hits = require('./routes/hits');
+var hits = require('./routes/hits.js');
 
 var app = express();
 
@@ -28,15 +28,15 @@ app.use('/routes', routes);
 app.use('/users', users);
 // app.use('/hits', hits);
 
+app.get('/hits', hits.count);
+app.post('/hit', hits.registerNew);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
-
-app.get('/hits', hits.count);
-app.post('/hit', hits.registerNew);
 
 // error handlers
 
