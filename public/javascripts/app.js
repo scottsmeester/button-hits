@@ -10,8 +10,9 @@ angular.module('myApp', [
   })
 
   $scope.registerHit = function(){
-    HitService.registerHit()
-    .then(function(data){
+    var promise =  HitService.registerHit();
+    promise.then(function(data){
+      console.log('data', data);
       $scope.hits = data;
     })
   }
