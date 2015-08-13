@@ -20,7 +20,8 @@ angular.module('myApp.services', [])
       })
       .error(function(data,status) {
         d.reject(data);
-      })
+      });
+      return d.promise;
     }
   }
   return service;

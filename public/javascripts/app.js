@@ -12,7 +12,6 @@ angular.module('myApp', [
   $scope.registerHit = function(){
     var promise =  HitService.registerHit();
     promise.then(function(data){
-      console.log('data', data);
       $scope.hits = data;
     })
   }
